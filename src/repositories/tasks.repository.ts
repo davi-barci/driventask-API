@@ -40,3 +40,7 @@ export async function updateTask({ title, description, category, dueDate, done, 
 
     return result.rows[0];
 }
+
+export async function deleteTask(idTask: number): Promise<void>{
+    await db.query(`DELETE FROM tasks WHERE id = $1`, [idTask]);
+}

@@ -20,3 +20,9 @@ export async function updateTask(req: Request, res: Response): Promise<void> {
     }
     res.send(newTask).status(httpStatus.OK);
 }
+
+export async function deleteTask(req: Request, res: Response): Promise<void> {
+    const {id} = req.params;
+    await taskService.deleteTask(Number(id));
+    res.sendStatus(httpStatus.OK);
+}

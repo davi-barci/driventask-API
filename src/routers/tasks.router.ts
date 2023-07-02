@@ -9,5 +9,6 @@ const taskRouter = Router();
 taskRouter.post("/task", validateSchema(taskSchema.createTask), authValidation, taskController.createTask);
 taskRouter.get("/task", authValidation, taskController.getAllTasksById);
 taskRouter.put("/task/:id", validateSchema(taskSchema.updateTask), authValidation, taskController.updateTask);
+taskRouter.delete("/task/:id", authValidation, taskController.deleteTask);
 
 export default taskRouter;

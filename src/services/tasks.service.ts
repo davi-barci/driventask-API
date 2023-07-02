@@ -15,3 +15,7 @@ export async function updateTask(data: Task, idTask: number): Promise<Task>{
     const result = await taskRepository.updateTask(data, idTask);
     return result;
 }
+
+export async function deleteTask(idTask: number): Promise<void>{
+    await taskRepository.deleteTask(idTask);
+}
