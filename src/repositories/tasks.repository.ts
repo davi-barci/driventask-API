@@ -13,3 +13,12 @@ export async function createTask({ title, description, category, dueDate, userId
 
     return result.rows[0].id;
 };
+
+export async function getAllTasksById(userId: number): Promise<Task[] | null>{
+
+    const result = await db.query(
+        ` SELECT * FROM tasks WHERE id_user = $1;`,[userId]
+    );
+
+    return result.rows;
+};

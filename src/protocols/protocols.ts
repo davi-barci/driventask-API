@@ -12,5 +12,6 @@ export type Task = {
     description: string;
     category: string;
     dueDate?: Date;
+    done?: boolean;
     userId: number;
 };

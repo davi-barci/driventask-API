@@ -6,6 +6,7 @@ import authValidation from "../middlewares/auth.middleware";
 
 const taskRouter = Router();
 
-taskRouter.post("/task", validateSchema(taskSchema.createTask), authValidation, taskController.createTask)
+taskRouter.post("/task", validateSchema(taskSchema.createTask), authValidation, taskController.createTask);
+taskRouter.get("/task", authValidation, taskController.getAllTasksById);
 
 export default taskRouter;
