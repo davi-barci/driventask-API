@@ -9,6 +9,6 @@ export async function signUp(req: Request, res: Response): Promise<void> {
 
 export async function signIn(req: Request, res: Response): Promise<void> {
   const token = await userService.signIn({ ...req.body });
-  res.send(token);
+  res.send(token).status(httpStatus.OK);
 }
 

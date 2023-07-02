@@ -15,3 +15,9 @@ export type Task = {
     done?: boolean;
     userId: number;
 };
+
+export type CustomError = {
+    name: string;
+    message: string;
+    status?: number;
+  }

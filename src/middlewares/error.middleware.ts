@@ -1,10 +1,11 @@
+import { NextFunction, Response, Request } from "express";
 import httpStatus from "http-status";
 
-interface ErrorStatusCodes {
+type ErrorStatusCodes = {
   [key: string]: number;
 }
 
-interface PostgresErrorCodes {
+type PostgresErrorCodes = {
   [key: number]: number;
 }
 
@@ -19,7 +20,7 @@ const postgresErrorCodes: PostgresErrorCodes = {
   23505: httpStatus.CONFLICT,
 };
 
-function errorMiddleware(err: any, _req: any, res: any, _next: any) {
+function errorMiddleware(err: any, _req: Request, res: Response, _next: NextFunction) {
   const response = err.message || "Internal Server Error";
   let statusCode =
     errorStatusCodes[err.name] ||

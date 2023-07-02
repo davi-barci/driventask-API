@@ -15,9 +15,6 @@ export async function getAllTasksById(_req: Request, res: Response): Promise<voi
 export async function updateTask(req: Request, res: Response): Promise<void> {
     const {id} = req.params;
     const newTask = await taskService.updateTask({ ...req.body, userId: res.locals.userId}, Number(id));
-    if(newTask === undefined){
-     res.sendStatus(httpStatus.NOT_FOUND);   
-    }
     res.send(newTask).status(httpStatus.OK);
 }
 

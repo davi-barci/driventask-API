@@ -1,10 +1,5 @@
 import httpStatus from 'http-status';
-
-export type CustomError = {
-  name: string;
-  message: string;
-  status?: number;
-}
+import { CustomError } from 'protocols/protocols';
 
 export function unauthorized(message = "Unauthorized"): CustomError {
   const error: CustomError = {name: "UnauthorizedError", message, status: httpStatus.UNAUTHORIZED};
@@ -12,7 +7,7 @@ export function unauthorized(message = "Unauthorized"): CustomError {
 }
 
 export function notFound(message = "Not Found"): CustomError {
-  const error: CustomError = {name: "NotFound", message, status: httpStatus.NOT_FOUND};
+  const error: CustomError = {name: "NotFoundError", message, status: httpStatus.NOT_FOUND};
   return error;
 }
 
@@ -22,7 +17,7 @@ export function conflict(message = "Conflict"): CustomError {
 }
 
 export function unprocessableEntity(message = "Unprocessable Entity"): CustomError {
-  const error: CustomError = {name: "UnprocessableEntity", message, status: httpStatus.UNPROCESSABLE_ENTITY};
+  const error: CustomError = {name: "UnprocessableEntityError", message, status: httpStatus.UNPROCESSABLE_ENTITY};
   return error;
 }
 
