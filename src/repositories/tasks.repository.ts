@@ -1,5 +1,5 @@
-import db from "../configs/database.connection";
-import { Task } from "../protocols/protocols";
+import db from "@/configs/database.connection";
+import { Task } from "@/protocols/protocols";
 
 export async function createTask({ title, description, category, dueDate, userId}: Task): Promise<number>{
     const result = await db.query(

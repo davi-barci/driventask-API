@@ -1,5 +1,5 @@
-import db from "../configs/database.connection";
-import { User, UserSignUp } from "../protocols/protocols";
+import db from "@/configs/database.connection";
+import { User, UserSignUp } from "@/protocols/protocols";
 
 export async function createUser({ name, email, password }: UserSignUp): Promise<void> {
   await db.query(

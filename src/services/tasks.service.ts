@@ -1,6 +1,6 @@
-import { Task } from "../protocols/protocols";
-import * as taskRepository from "../repositories/tasks.repository";
-import * as errors from "../errors/index.errors";
+import { Task } from "@/protocols/protocols";
+import * as taskRepository from "@/repositories/tasks.repository";
+import * as errors from "@/errors/index.errors";
 
 export async function createTask(data: Task): Promise<void>{
     await taskRepository.createTask(data);

@@ -1,8 +1,8 @@
-import * as userRepository from "../repositories/users.repository";
+import * as userRepository from "@/repositories/users.repository";
 import { v4 as uuid } from "uuid";
 import bcrypt from "bcrypt";
-import * as errors from "../errors/index.errors";
-import { UserSignUp, User } from "../protocols/protocols";
+import * as errors from "@/errors/index.errors";
+import { UserSignUp, User } from "@/protocols/protocols";
 
 export async function signUp(data: UserSignUp): Promise<void> {
   const { name, email, password } = data;

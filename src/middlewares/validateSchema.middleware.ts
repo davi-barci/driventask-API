@@ -1,6 +1,6 @@
 import { Schema, ValidationResult } from 'joi';
 import { NextFunction, Request, Response } from 'express';
-import * as errors from "../errors/index.errors"
+import * as errors from "@/errors/index.errors"
 
 function validateSchema(schema: Schema, field = 'body') {
   return (req: Request, res: Response, next: NextFunction) => {
