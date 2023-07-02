@@ -6,3 +6,9 @@ export async function signUp(req: Request, res: Response): Promise<void> {
   await userService.signUp({ ...req.body });
   res.sendStatus(httpStatus.CREATED);
 }
+
+export async function signIn(req: Request, res: Response): Promise<void> {
+  const token = await userService.signIn({ ...req.body });
+  res.send(token);
+}
+
