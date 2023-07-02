@@ -22,3 +22,21 @@ export async function getAllTasksById(userId: number): Promise<Task[] | null>{
 
     return result.rows;
 };
+
+export async function updateTask({ title, description, category, dueDate, done, userId}: Task, taskId: number): Promise<Task>{
+
+    const result = await db.query(`
+        UPDATE tasks 
+        SET 
+            title = $1,
+            description = $2,
+            category = $3,
+            due_date = $4,
+            done = $5
+        WHERE
+            id = $6 AND id_user = $7
+        RETURNING *
+    `, [title, description, category, dueDate, done, taskId, userId]);
+
+    return result.rows[0];
+}

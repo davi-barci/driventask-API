@@ -10,3 +10,8 @@ export async function getAllTasksById(userId: number): Promise<Task[] | null>{
     const result = await taskRepository.getAllTasksById(userId);
     return result;
 }
+
+export async function updateTask(data: Task, idTask: number): Promise<Task>{
+    const result = await taskRepository.updateTask(data, idTask);
+    return result;
+}
