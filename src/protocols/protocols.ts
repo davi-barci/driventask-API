@@ -6,3 +6,11 @@ export type User = {
 };
 
 export type UserSignUp = Omit<User, "id">;
+
+export type Task = {
+    title: string;
+    description: string;
+    category: string;
+    dueDate?: Date;
+    userId: number;
+};
